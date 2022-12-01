@@ -98,6 +98,7 @@ void oak_camera::InitCamera_()
         }
         if (has_left && has_right) {
             has_depth_ = true;
+            // Add common depth configurations
             depth_configs_.emplace_back(StreamConfig{"1280 x 800", "Depth", dai::CameraBoardSocket::AUTO,
                                                      (int)dai::MonoCameraProperties::SensorResolution::THE_800_P,
                                                      1280, 800, false, 1, 1, {120, 60, 30, 15}, 0});
@@ -110,12 +111,13 @@ void oak_camera::InitCamera_()
             depth_configs_.emplace_back(StreamConfig{"640 x 400", "Depth", dai::CameraBoardSocket::AUTO,
                                                      (int)dai::MonoCameraProperties::SensorResolution::THE_400_P,
                                                      640, 400, false, 1, 1, {120, 60, 30, 15}, 0});
-            // Add Depth Propert Controls
+            // Add Depth Property Controls
             depth_props_["Preset"] = {0, {0, 2, 0, 1.0f},
                                         {"High Accuracy", "High Density"},
                                         true, false};
         }
         if (has_rgb_) {
+            // Add common RGB configurations
             color_configs_.emplace_back(StreamConfig{"3840 x 2160", "RGB", dai::CameraBoardSocket::RGB,
                                                      (int)dai::ColorCameraProperties::SensorResolution::THE_4_K,
                                                      3840, 2160, false, 1, 1, {60, 30, 15}, 0});
