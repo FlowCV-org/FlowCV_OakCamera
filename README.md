@@ -2,6 +2,8 @@
 
 Adds Oak camera source input to [FlowCV](https://github.com/FlowCV-org/FlowCV)
 
+_This is a very basic initial implementation to provide RGB and Depth streams from the camera, additional work is still needed to support onboard Movidius workloads._
+
 ---
 
 ### Build Instructions
