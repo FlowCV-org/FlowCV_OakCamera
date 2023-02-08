@@ -28,3 +28,15 @@ cmake .. -DDEPTHAI_DIR=/path/to/depthai/install/path -DFlowCV_DIR=/path/to/FlowC
 make
 ```
 
+---
+
+### Troubleshooting
+
+If you have a problem with USB device access permissions you may need to add the following udev rule:
+
+```commandline
+sudo mkdir -p /etc/udev/rules.d/
+sudo echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="03e7", MODE="0666"' | tee /etc/udev/rules.d/80-movidius.rules > /dev/null
+sudo udevadm control --reload-rules && udevadm trigger
+```
+
